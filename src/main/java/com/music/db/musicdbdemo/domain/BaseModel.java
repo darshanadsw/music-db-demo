@@ -13,11 +13,20 @@ import java.util.Date;
 public abstract class BaseModel {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     protected Long id;
 
     protected Date createdDate;
 
     protected Date modifiedDate;
+
+    @PrePersist
+    public void onCreate(){
+        createdDate = new Date();
+    }
+    @PreUpdate
+    public void onUpdate(){
+        modifiedDate = new Date();
+    }
 
 }

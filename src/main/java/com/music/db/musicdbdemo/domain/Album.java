@@ -1,10 +1,16 @@
 package com.music.db.musicdbdemo.domain;
 
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
-import java.util.ArrayList;
 import java.util.List;
 
+@Getter
+@Setter
+@NoArgsConstructor
 @Entity
 public class Album extends BaseModel {
 
@@ -18,5 +24,7 @@ public class Album extends BaseModel {
     public Album(List<Song> songs){
         this.songs = songs;
     }
+
+
 
 }
